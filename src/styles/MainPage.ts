@@ -1,3 +1,4 @@
+import {Box} from '@chakra-ui/react';
 import {motion} from "framer-motion";
 import styled from "styled-components";
 
@@ -71,6 +72,10 @@ export const TopSection = styled.div<ColorModeProps>`
     height: 100%;
     background: linear-gradient(135deg, #0e73cc 1.93%, #624bbb 14.86%, #ff455d 48.09%, #f35815 77.82%, #f2b600 97.3%);
     z-index: -3;
+
+    @media (max-width: 600px) {
+      background: ${props => props.colorMode === 'dark' ? `rgba(255, 255, 255, 0.07)` : `rgba(0, 0, 0, 0.07)`};
+    }
   }
 
   &:after {
@@ -89,56 +94,15 @@ export const TopSection = styled.div<ColorModeProps>`
     }};
     filter: blur(100px);
     z-index: -2;
+    
+    @media (max-width: 600px) {
+      display: none;
+    }
   }
 `;
 
-export const HiTitle = styled(motion.span)`
-  box-sizing: border-box;
-  text-align: center;
-  -webkit-text-fill-color: transparent;
-  font-style: normal;
-  font-weight: 900;
-  font-size: 4rem;
-  line-height: 108px;
-  font-family: Inter, sans-serif;
-  background: linear-gradient(135deg, #0e73cc 1.93%, #624bbb 14.86%, #ff455d 48.09%, #f35815 77.82%, #f2b600 97.3%);
-  color: transparent;
-  -webkit-background-clip: text;
-
-  @media (max-width: 768px) {
-    font-size: 3.5rem;
-    line-height: 80px;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 2.8rem;
-    line-height: 50px;
-  }
-`;
-
-export const NameTitle = styled(motion.h1)`
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  flex-direction: column;
-  letter-spacing: -2px;
-  font-style: normal;
-  font-weight: 900;
-  font-size: 4rem;
-  line-height: 108px;
-  font-family: Inter, sans-serif;
-
-  @media (max-width: 768px) {
-    font-size: 3rem;
-    line-height: 50px;
-  }
+export const MotionBox = styled(motion(Box))`
   
-  @media (max-width: 480px) {
-    font-size: 2.25rem;
-    line-height: 50px;
-  }
 `;
 
 export const Descriptions = styled.div`

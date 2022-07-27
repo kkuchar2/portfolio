@@ -1,30 +1,16 @@
 import React, {useEffect, useState} from "react";
 
-import {Theme, useColorMode} from "@chakra-ui/react";
+import {Box} from "@chakra-ui/react";
 
-import {useAppContext} from "../../context/state";
-
-import {NavbarItems, StyledNavBar} from "./style";
+import { StyledTopBar} from "./style";
 
 import DualLanguageSwitch from "components/DualLanguageSwitch/DualLanguageSwitch";
 import ThemeSwitcher from "components/ThemeSwitcher/ThemeSwitcher";
-import useMediaQuery from "hooks/useMediaQuery";
 
-interface StyleOptions {
-    theme: Theme
-    colorMode: 'light' | 'dark'
-    colorScheme: string
-}
-
-const NavBar = () => {
+const TopBar = () => {
 
     const [show, setShow] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
-    const isMobile = useMediaQuery('(max-width: 768px)');
-
-    const [navbarOpened, setNavbarOpened] = useAppContext();
-
-    const { colorMode } = useColorMode();
 
     const controlNavbar = () => {
         if (typeof window !== 'undefined') {
@@ -41,12 +27,6 @@ const NavBar = () => {
     };
 
     useEffect(() => {
-        if (!isMobile) {
-            setNavbarOpened(false);
-        }
-    }, [isMobile]);
-
-    useEffect(() => {
         if (typeof window !== 'undefined') {
             window.addEventListener('scroll', controlNavbar);
 
@@ -56,14 +36,12 @@ const NavBar = () => {
         }
     }, [lastScrollY]);
 
-    return <StyledNavBar navbarOpened={navbarOpened} visible={show} style={{
-        background: colorMode === 'light' ? '#fafafa' : '#1D1D1D'
-    }}>
-        <NavbarItems navbarOpened={navbarOpened} visible={show}>
+    return <StyledTopBar bg={'bg-navbar'} visible={show}>
+        <Box className={'flex items-center justify-between gap-[30px] h-full w-full md:w-auto'}>
             <DualLanguageSwitch firstLanguage={'en'} secondLanguage={'pl'}/>
             <ThemeSwitcher/>
-        </NavbarItems>
-    </StyledNavBar>;
+        </Box>
+    </StyledTopBar>;
 };
 
-export default NavBar;
+export default TopBar;
