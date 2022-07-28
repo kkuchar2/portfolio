@@ -16,7 +16,7 @@ const DualLanguageSwitch = (props: DualLanguageSwitchProps) => {
     const { firstLanguage, secondLanguage } = props;
 
     return <div className={'flex h-full items-center'}>
-        <TranslateIcon width={20} color={useSemanticColor('lang-switch-icon')} className={'mt-[2px]'}/>
+        {/*<TranslateIcon width={20} color={useSemanticColor('lang-switch-icon')} className={'mt-[2px]'}/>*/}
         <LanguageSwitchButton lang={firstLanguage}/>
         <Text color={'lang-option-separator'}>|</Text>
         <LanguageSwitchButton lang={secondLanguage}/>

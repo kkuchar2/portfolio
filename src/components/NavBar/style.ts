@@ -1,11 +1,8 @@
 import {Box} from "@chakra-ui/react";
 import styled from "styled-components";
 
-interface StyledNavbarProps {
-    visible: boolean;
-}
 
-export const StyledTopBar = styled(Box)<StyledNavbarProps>`
+export const StyledTopBar = styled(Box)`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -14,11 +11,11 @@ export const StyledTopBar = styled(Box)<StyledNavbarProps>`
   flex-direction: row;
   position: fixed;
   left: 0;
-  top: ${props => props.visible ? '0' : '-80px'};
+  top: 0;
   height: 50px;
   z-index: 5;
   padding-left: 20px;
   padding-right: 20px;
-  transition: all 0.25s ease-out;
+  //transition: background 0.3s ease-out !important;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 `;

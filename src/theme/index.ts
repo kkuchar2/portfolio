@@ -4,8 +4,8 @@ import {extendTheme} from "@chakra-ui/react";
 const tokens = {
     colors: {
         'default': {
-            'bg-default': "#fafafa",
-            'bg-navbar': "#fafafa",
+            'bg-default': "#ffffff",
+            'bg-navbar': "#dedede",
             'text-default': "#333",
             'text-lang-option': "#a2a2a2",
             'text-lang-option-active': "#333",
@@ -17,7 +17,7 @@ const tokens = {
             'rainbow': `linear-gradient(135deg, #0e73cc 1.93%, #624bbb 14.86%, #ff455d 48.09%, #f35815 77.82%, #f2b600 97.3%)`,
         },
         _dark: {
-            'bg-default': "#1d1d1d",
+            'bg-default': "#272727",
             'bg-navbar': "#1d1d1d",
             'text-default': "#dfdfdf",
             'text-lang-option': "#666666",
@@ -55,6 +55,9 @@ const styles = {
     global: {
         body: {
             bg: "none",
+            WebkitFontSmoothing: 'antialiased',
+            MozOsxFontSmoothing: 'grayscale',
+            zIndex: 0,
             color: 'text-default',
         }
     }

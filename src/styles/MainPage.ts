@@ -22,33 +22,6 @@ export const StyledContent = styled.div`
   flex-direction: column;
 `;
 
-export const LeftRightShadow = styled.div<ColorModeProps>`
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: -1;
-  background: ${props => {
-      if (props.colorMode === 'dark') {
-        return `linear-gradient(to right, transparent 0%, #272727cc 50%, transparent 100%)`;
-      }
-      return `linear-gradient(to right, transparent 0%, #ffffff 50%, transparent 100%)`;
-  }};
-
-`;
-
-export const TopBottomShadow = styled.div<ColorModeProps>`
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: -1;
-  background: ${props => {
-    if (props.colorMode === 'dark') {
-        return `linear-gradient(to bottom, #272727cc 0%, transparent 10%, transparent 90%, #272727cc 100%)`;
-    }
-    return `linear-gradient(to bottom, #ffffff 0%, transparent 10%, transparent 90%, #ffffff 100%)`;
-}};
-`;
-
 export const TopSection = styled.div<ColorModeProps>`
   overflow: hidden;
   box-sizing: border-box;
@@ -63,42 +36,6 @@ export const TopSection = styled.div<ColorModeProps>`
   justify-content: center;
   background-size: 50px 50px;
   position: relative;
-  background: ${props => props.colorMode === 'dark' ? `url('/images/rect-dark.svg')` : `url('/images/rect-light.svg')`};
-
-  &:before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #0e73cc 1.93%, #624bbb 14.86%, #ff455d 48.09%, #f35815 77.82%, #f2b600 97.3%);
-    z-index: -3;
-
-    @media (max-width: 600px) {
-      background: ${props => props.colorMode === 'dark' ? `rgba(255, 255, 255, 0.07)` : `rgba(0, 0, 0, 0.07)`};
-    }
-  }
-
-  &:after {
-    content: "";
-    position: absolute;
-    top: calc(var(--mouse-y) * 1px - 200px);
-    left: calc(var(--mouse-x) * 1px - 200px);
-    width: 400px;
-    height: 400px;
-    border-radius: 50%;
-    box-shadow: ${props => {
-      if (props.colorMode === 'light') {
-        return `0 0 0 99999px rgba(220, 220, 220, 1), 0 2px 5px #000`;
-      }
-      return `0 0 0 99999px rgba(44, 44, 44, 0.99), 0 2px 5px #000`;
-    }};
-    filter: blur(100px);
-    z-index: -2;
-    
-    @media (max-width: 600px) {
-      display: none;
-    }
-  }
 `;
 
 export const MotionBox = styled(motion(Box))`
